@@ -1,0 +1,17 @@
+{% extends "EMP/header.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="large-push-2 large-9 columns">
+<form id="updateEmployeeForm" >
+    <table class="mytable1" align="center">
+        <tr><td>Username</td><td><input type="text" id="name1" name="name1" value="{{ name }}"></td></tr>
+        <tr><td>EmailId</td><td><input type="text" id="email1" name="email1" value="{{ email }}"></td></tr>
+        <tr><td>Mobile number</td><td><input type="text" id="phno1" name="phno1" value="{{ phno }}"></td></tr>
+        <tr><td></td><td><input class="clear" type="submit" onclick="updateData();"></td></tr>
+    </table>
+    <p style="text-align:center; color:red;" class="val2"></p>
+</form>
+    </div>
+</div>
+{% endblock %}

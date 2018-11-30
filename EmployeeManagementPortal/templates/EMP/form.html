@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'EMP/css/foundation.css' %}" />
+    <link rel="stylesheet" href="{% static 'EMP/css/form.css' %}" />
+    <script src="{% static 'EMP/js/vendor/modernizr.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+        <div class="row" style="text-align:center;background-color:black; color:green;">
+                <h1>Employee Management Portal</h1>
+              </div>
+              <div class="row"> 
+               <ul class="tabs horizontal" data-tab>
+                 <li class="tab-title active"><a href="#panel11">Add Employee</a></li>
+                 <li  class="tab-title"><a href="#panel21">View Employee</a></li>
+                 <li class="tab-title"><a href="#panel31" onclick="hideElement();">Upload CSV</a></li>
+                 <li class="tab-title"><a href="#panel41" onclick="hideElement();">Download CSV</a></li>
+                 <li class="tab-title"><a href="#panel51" onclick="hideElement();">Search Employee</a></li>
+               </ul>
+               <div class="tabs-content">
+                 <div class="content active" id="panel11">
+                    <div style="text-align: center">
+                         
+                    <form id="addEmployeeForm" method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <input type ="submit" class="addEmp" value="Submit">
+                    </form>
+                 </div>
+                 </div>
+                 <div class="content" id="panel21">
+                    <div class="large-12 columns viewTable">
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email ID</th>
+                                <th>Mobile Number</th>
+                            </tr>
+                            {% for item in table %}
+                              <tr>
+                                <td>{{ item.username }}</td>
+                                <td>{{ item.emailId }}</td>
+                                <td>{{ item.mobileNumber }}</td>
+                                <td><button>Delete</button></td>
+                                <td><button>Update</button></td>
+                              </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <p style="text-align:center; color:red;"class="val3"></p>
+                 </div>
+                 <div class="content" id="panel31">
+                    <div class="large-5 large-offset-4 columns element">
+                        <input type="file" id="file">
+                        <button onclick="uploadcsv();">upload csv</button>
+                    </div>
+                 </div>
+                 <div class="content" id="panel41">
+                        <center><button onclick="getData();">Download data</button></center>
+               </div>
+               <div class="content" id="panel51">
+                 <div class="large-5 columns">
+                  <input type="text" id="searchtext">
+                  <button onclick="search();">Search</button>
+                  <div class="large-12 columns searchTable"></div>
+                </div>
+               </div>
+               </div>
+               </div>
+
+                <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" style="visibility:visible;" role="dialog">
+                 <form id="updateEmployeeForm" >
+                    <table class="mytable1" align="center">
+                    <tr>
+                      <td>Enter name</td><td><input type="text" id="name1" name="name1"></td></tr>
+                     <tr><td>Enter emailid</td><td><input type="text" id="email1" name="email1"></td></tr>
+                     <tr><td>Enter mobile number</td><td><input type="text" id="phno1" name="phno1"></td></tr>
+                     <tr><td></td><td><input class="clear" type="submit"></td></tr></table>
+                     <p style="text-align:center; color:red;" class="val2"></p>
+                 </form>
+                 <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                    </div>
+                    
+                   <input type="hidden" id="tempid"> 
+               <script src="{% static 'EMP/js/vendor/jquery.js' %}"></script>
+               <script src="{% static 'EMP/js/foundation.min.js' %}"></script>
+               <script>
+                 $(document).foundation();
+               </script>  
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+                <script src="{% static 'EMP/js/submit.js' %}"></script>
+                <script src="{% static 'EMP/js/upload.js' %}"></script>
+                <script src="{% static 'EMP/js/download.js' %}"></script>
+                <script src="{% static 'EMP/js/minfuncton.js' %}"></script>
+                
+</body>
+</html>

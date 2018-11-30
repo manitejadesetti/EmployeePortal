@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Employee Portal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'EMP/css/foundation.css' %}" />
+    <link rel="stylesheet" href="{% static 'EMP/css/form.css' %}" />
+    <script src="{% static 'EMP/js/vendor/modernizr.js' %}"></script>
+</head>
+<body>
+            <div class="row">
+                <div class="large-3 small-3 columns">
+                    <img src="{% static 'EMP/images/custom-furnish.png' %}" alt="KFmade">
+                </div>
+            </div>
+
+            <div style="border-bottom: 1px solid #e31e24; background-color: #fafafa;">
+                <div class="row" style="background-color: #fafafa !important;">
+                        <ul class="headerSection">
+                            <li><a href="{% url 'EmployeeManagementPortal.views.home' %}">Home</a></li>
+                            <li><a href="{% url 'EmployeeManagementPortal.views.showform' %}">Add Employee</a></li>
+                            <li><a href="{% url 'EmployeeManagementPortal.views.showTable' %}">View Employees</a></li>
+                            <li><a href="{% url 'EmployeeManagementPortal.views.uploadCSV' %}">Upload CSV</a></li>
+                            <li><a href="{% url 'EmployeeManagementPortal.views.download' %}">Download CSV</a></li>
+                            <li><a href="{% url 'EmployeeManagementPortal.views.searchEmployee' %}">Search Employee</a></li>
+                        </ul>
+                </div>
+            </div>
+    {% block content %}
+    {% endblock %}
+</div>
+</div>
+             </div>
+        </div>
+<script src="{% static 'EMP/js/vendor/jquery.js' %}"></script>
+<script src="{% static 'EMP/js/foundation.min.js' %}"></script>
+<script>
+    $(document).foundation();
+ </script>
+<script src="{% static 'EMP/js/submit.js' %}"></script>
+<script src="{% static 'EMP/js/upload.js' %}"></script>
+<script src="{% static 'EMP/js/minfunction.js' %}"></script>
+</body>
+</html>

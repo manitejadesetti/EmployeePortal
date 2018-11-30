@@ -1,0 +1,32 @@
+{% extends "EMP/header.html" %}
+
+{% block content %}
+<div class="row">
+<div class="large-12 columns viewTable">
+   <table>
+       <tr>
+           <th>Name</th>
+           <th>Email ID</th>
+           <th>Mobile Number</th>
+       </tr>
+       {% for items in table %}
+       {% if item in items.username or item in items.emailId or item in items.mobileNumber %}
+       <tr>
+           <td>{{ items.username }}</td>
+           <td>{{ items.emailId }}</td>
+           <td>{{ items.mobileNumber }}</td>
+           <td><a href="/EMP/{{ items.id }}/delete">Delete</a></td>
+           <td><a href="/EMP/{{ items.id }}/update">Update</a></td>
+       </tr>
+       {% endif %}
+       {% endfor %}
+   </table>
+</div>
+</div>
+<p style="text-align:center; color:red;"class="val3"></p>
+
+
+
+
+
+{% endblock %}

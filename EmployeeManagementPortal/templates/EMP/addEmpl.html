@@ -1,0 +1,19 @@
+{% extends "EMP/header.html" %}
+
+{% block content %}
+ <div class="row">
+     <div class="large-9 columns">
+     <h1 style="text-align:center;">Add Employee</h1>
+     <form id="addEmployeeForm">
+           <table align="center">
+                    <tr>
+                    <td>Enter name</td><td><input type="text" id="name" name="name"></td></tr>
+                    <tr><td>Enter emailid</td><td><input type="text" id="email" name="email" ></td></tr>
+                    <tr><td>Enter mobile number</td><td><input type="text" id="phno" name="phno" ></td></tr>
+                    <tr><td></td><td><input class="addEmp" type="submit" onclick="addEmpl();"></td></tr></table>
+                    <p class="val1"></p>
+
+     </form>
+    </div>
+ </div>
+{% endblock %}

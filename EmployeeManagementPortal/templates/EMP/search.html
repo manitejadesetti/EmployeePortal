@@ -1,0 +1,13 @@
+{% extends "EMP/header.html" %}
+
+{% block content %}
+<div class="row" style="margin-top:2%">
+ <div class="large-push-2 large-4 columns">
+    <form id="searchEmployee" action="/EMP/searchdata/" method="get">
+    <input type="text" id="searchtext" name="searchtext">
+    <input type="submit" class="button small">
+    </form>
+     <p style="text-align:center; color:red;">{{ msg }}</p>
+ </div>
+</div>
+{% endblock %}>
